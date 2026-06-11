@@ -1,72 +1,108 @@
-# 🍽️ Amazon Fine Food Reviews Sentiment Analysis
+# 🍽️ Sentiment Analysis of Amazon Food Reviews
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-orange)
-![NLP](https://img.shields.io/badge/NLP-Sentiment%20Analysis-red)
+![NLP](https://img.shields.io/badge/NLP-Sentiment%20Analysis-orange)
+![Transformers](https://img.shields.io/badge/Transformers-HuggingFace-yellow)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Classification-green)
 
 ## 📌 Project Overview
 
-This project focuses on analyzing customer reviews from Amazon's food products dataset using Natural Language Processing (NLP) and Machine Learning techniques.
+This project focuses on sentiment analysis of Amazon food product reviews using Natural Language Processing (NLP) techniques and transformer-based models.
 
-The main objective is to classify customer sentiment and extract meaningful insights from large-scale textual data. By transforming unstructured reviews into structured information, businesses can better understand customer opinions and improve decision-making.
+The goal is to classify customer reviews into **Positive** and **Negative** sentiments, compare the performance of multiple pre-trained models, and identify the most effective approach for sentiment classification.
 
 ---
 
 ## 📂 Dataset
 
-The dataset used in this project is the **Amazon Fine Food Reviews Dataset**, containing more than 500,000 customer reviews collected from Amazon.
+The project uses the Amazon Fine Food Reviews dataset from Kaggle.
 
-**Dataset Link:**
+**Dataset Source:**
 https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
 
-### Dataset Features
-
-| Feature     | Description               |
-| ----------- | ------------------------- |
-| Score       | Review rating (1–5 stars) |
-| Summary     | Short review summary      |
-| Text        | Full customer review      |
-| Helpfulness | Helpfulness votes         |
-| User ID     | Reviewer identifier       |
-| Product ID  | Product identifier        |
-| Time        | Review timestamp          |
+The dataset contains customer reviews, ratings, product information, and helpfulness scores collected from Amazon users.
 
 ---
 
 ## 🎯 Objectives
 
-* Analyze customer review patterns
-* Clean and preprocess textual data
-* Perform Exploratory Data Analysis (EDA)
-* Apply NLP techniques to review text
-* Build sentiment classification models
-* Evaluate model performance
+* Analyze customer review sentiment.
+* Preprocess and clean textual data.
+* Address class imbalance within the dataset.
+* Extract meaningful textual features.
+* Compare multiple sentiment classification models.
+* Identify the best-performing model.
 
 ---
 
-## 🔍 Project Workflow
+## ⚙️ Data Preprocessing
 
-### 1. Data Preprocessing
+The following preprocessing steps were applied:
 
-* Handling missing values
-* Removing duplicates
-* Text cleaning
-* Data transformation
+* Sentiment labeling based on review scores.
+* Text cleaning and normalization.
+* Converting text to lowercase.
+* Removing punctuation and numbers.
+* Removing stop words.
+* Creating a cleaned text dataset for modeling.
 
-### 2. Exploratory Data Analysis
+---
 
-* Rating distribution analysis
-* Review frequency analysis
-* Sentiment trend exploration
-* Data visualization
+## ⚖️ Handling Class Imbalance
 
-### 3. Sentiment Analysis
+The dataset showed a significant imbalance between positive and negative reviews.
 
-* Feature extraction
-* Text vectorization
-* Model training
-* Performance evaluation
+To improve model performance and reduce bias, **oversampling** was applied to the minority class before training and evaluation.
+
+---
+
+## 📊 Exploratory Data Analysis (EDA)
+
+Several analyses were performed to better understand the dataset:
+
+* Review score distribution.
+* Sentiment distribution.
+* Class imbalance analysis.
+* TF-IDF feature analysis.
+* Bag of Words analysis.
+* Word Cloud visualization.
+
+---
+
+## 🤖 Models Evaluated
+
+### Model 1
+
+**Twitter RoBERTa**
+
+Pre-trained transformer model used for sentiment classification.
+
+### Model 2
+
+**DistilBERT Base Uncased Fine-Tuned SST-2**
+
+Lightweight transformer model optimized for sentiment analysis.
+
+### Model 3
+
+**SieBERT**
+
+State-of-the-art sentiment classification model designed for English-language sentiment analysis.
+
+---
+
+## 📈 Model Comparison
+
+The three models were evaluated and compared using standard classification metrics:
+
+* Accuracy
+* Precision
+* Recall
+* F1-Score
+
+### Best Performing Model
+
+🏆 **SieBERT** achieved the strongest overall performance and delivered the most reliable sentiment predictions across both sentiment classes.
 
 ---
 
@@ -77,29 +113,24 @@ https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
 * NumPy
 * Matplotlib
 * Seaborn
-* Scikit-Learn
+* Scikit-learn
+* Hugging Face Transformers
 * Jupyter Notebook
 
 ---
 
-## 📊 Key Insights
+## 💡 Business Value
 
-* Customer reviews provide valuable indicators of product satisfaction.
-* Review ratings strongly correlate with review sentiment.
-* NLP techniques can effectively transform textual reviews into machine-learning-ready features.
-* Large-scale review analysis enables data-driven business decisions.
+The developed sentiment analysis system can help businesses:
 
----
-
-## 🚀 Future Improvements
-
-* Deep Learning models (LSTM, GRU)
-* Transformer-based models (BERT)
-* Real-time sentiment prediction
-* Interactive dashboard visualization
+* Understand customer satisfaction.
+* Detect recurring customer concerns.
+* Monitor product perception.
+* Support data-driven decision making.
+* Improve products and customer experience.
 
 ---
 
 ## 📖 Conclusion
 
-This project demonstrates how Machine Learning and Natural Language Processing can be used to analyze customer feedback at scale. The findings highlight the importance of sentiment analysis in understanding customer experiences and generating actionable business insights.
+This project demonstrates how modern NLP techniques and transformer-based models can be used to analyze customer opinions at scale. By comparing multiple pre-trained models, the study identified SieBERT as the most effective solution for sentiment classification on Amazon food reviews.
